@@ -7,7 +7,7 @@
 
 Node.js is an open-source, cross-platform JavaScript runtime environment that allows developers to run JavaScript code outside of a web browser. It is primarily used for server-side (backend) development. Here's why Node.js has gained popularity in the backend development community:
 
-1. JavaScript as the Programming Language: Node.js leverages JavaScript, a language that many developers are already familiar with due to its dominance in web development. Using JavaScript for both frontend and backend development allows for code reuse, reduces the learning curve, and promotes full-stack development.
+1. `JavaScript as the Programming Language:` Node.js leverages JavaScript, a language that many developers are already familiar with due to its dominance in web development. Using JavaScript for both frontend and backend development allows for code reuse, reduces the learning curve, and promotes full-stack development.
     
 2. Asynchronous and Event-Driven: Node.js uses an event-driven, non-blocking I/O model, which makes it highly efficient and scalable. It allows handling a large number of concurrent connections without requiring additional threads, unlike traditional server-side technologies. This makes it particularly well-suited for building real-time applications like chat apps, collaborative tools, and streaming services.
     
