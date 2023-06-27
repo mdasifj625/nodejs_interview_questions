@@ -349,3 +349,70 @@ In Node.js, errors can be handled using various techniques and patterns. Here ar
    ```
 
 These are just a few examples of error handling techniques in Node.js. The choice of approach depends on the context and requirements of your application.
+
+
+**7. What is the difference between Callbacks and Promises in Node.js?**
+
+---
+
+In Node.js, callbacks and promises are two different approaches to handle asynchronous operations.
+
+Callbacks: Callbacks are a common pattern in Node.js for handling asynchronous operations. A callback is a function that is passed as an argument to another function and is invoked when the operation completes. It allows you to specify what should happen once the asynchronous operation finishes. The callback typically takes two parameters: an error parameter (if any) and a result parameter.
+
+Here's an example of using callbacks in Node.js:
+
+```javascript
+function asyncOperation(callback) {
+  // Simulating an asynchronous operation
+  setTimeout(function() {
+    const error = null; // Set to non-null value to simulate an error
+    const result = "Operation completed successfully";
+    callback(error, result);
+  }, 1000);
+}
+
+// Using the asyncOperation with a callback
+asyncOperation(function(error, result) {
+  if (error) {
+    console.error("An error occurred:", error);
+  } else {
+    console.log("Result:", result);
+  }
+});
+```
+
+Promises: Promises provide an alternative approach to handle asynchronous operations in Node.js. A promise is an object that represents the eventual completion or failure of an asynchronous operation. It allows you to chain multiple asynchronous operations together and handle success or failure using `then()` and `catch()` methods.
+
+Here's an example of using promises in Node.js:
+
+```javascript
+function asyncOperation() {
+  return new Promise(function(resolve, reject) {
+    // Simulating an asynchronous operation
+    setTimeout(function() {
+      const error = null; // Set to non-null value to simulate an error
+      const result = "Operation completed successfully";
+      if (error) {
+        reject(error);
+      } else {
+        resolve(result);
+      }
+    }, 1000);
+  });
+}
+
+// Using the asyncOperation with promises
+asyncOperation()
+  .then(function(result) {
+    console.log("Result:", result);
+  })
+  .catch(function(error) {
+    console.error("An error occurred:", error);
+  });
+```
+
+In the promises example, the `asyncOperation` function returns a promise. The promise is resolved with the result if the operation succeeds, or rejected with an error if it fails. The `then()` method is used to handle the successful completion of the promise, and the `catch()` method is used to handle any errors that occur during the promise chain.
+
+Promises provide a more structured and readable way to handle asynchronous operations, especially when dealing with complex asynchronous flows or multiple asynchronous operations. They also support additional features like `Promise.all()` and `Promise.race()` for handling multiple promises simultaneously.
+
+Callbacks are more commonly used in older Node.js codebases, while promises and newer asynchronous patterns like async/await have gained popularity in recent years due to their improved readability and error handling capabilities.
