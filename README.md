@@ -416,3 +416,32 @@ In the promises example, the `asyncOperation` function returns a promise. The pr
 Promises provide a more structured and readable way to handle asynchronous operations, especially when dealing with complex asynchronous flows or multiple asynchronous operations. They also support additional features like `Promise.all()` and `Promise.race()` for handling multiple promises simultaneously.
 
 Callbacks are more commonly used in older Node.js codebases, while promises and newer asynchronous patterns like async/await have gained popularity in recent years due to their improved readability and error handling capabilities.
+
+
+**8. What is the role of the "require" function in Node.js? What is the alternative in es module?**
+
+---
+
+In Node.js, the `require` function is used to include and use modules in your JavaScript code. It is a built-in function that allows you to load and use external libraries, frameworks, and other modules in your Node.js application. The `require` function takes the path to the module file as its argument and returns the exported functionality from that module.
+
+Here's an example of how you can use the `require` function to include the `http` module in Node.js:
+
+```javascript
+const http = require('http');
+```
+
+In the above example, the `require` function is used to import the `http` module, which is a built-in module in Node.js for creating HTTP servers and making HTTP requests.
+
+However, in the more recent versions of JavaScript and Node.js, an alternative module system called ES Modules (ESM) has been introduced. With ES Modules, you can use the `import` statement instead of `require` to import modules. This module system provides a more standardized and modern approach to modular development in JavaScript.
+
+Here's an example of how you can use the `import` statement in an ES module:
+
+```javascript
+import http from 'http';
+```
+
+In the above example, the `import` statement is used to import the `http` module in an ES module. It is important to note that ES Modules use the file extension `.mjs` instead of `.js` by default.
+
+To use ES Modules in Node.js, you need to explicitly enable it by either using the `.mjs` file extension or by setting the `"type": "module"` field in your `package.json` file.
+
+It's worth mentioning that the `import` statement and ES Modules have additional features and capabilities compared to the traditional CommonJS modules used with `require`. This includes support for named exports, default exports, and more advanced module loading and dependency management capabilities.
