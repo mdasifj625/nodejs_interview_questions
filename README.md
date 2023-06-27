@@ -182,3 +182,49 @@ In the second part, we define an `async` function `readFileAsync` that performs 
 We call the `readFileAsync` function to read the 'example.txt' file and handle the results accordingly.
 
 Both examples exhibit non-blocking behavior, allowing the program to execute other tasks while waiting for the file read operation to complete.
+
+**4. What is npm? How do you use it in Node.js projects?**
+
+npm, which stands for Node Package Manager, is a package manager for Node.js and JavaScript. It is used to manage dependencies (third-party libraries and modules) and facilitate the installation, sharing, and updating of packages in Node.js projects.
+
+Here's how you can use npm in Node.js projects:
+
+1. Initialize a Node.js project: Open your command line interface and navigate to the root folder of your project. Run the following command to initialize a new Node.js project:
+    
+    ```csharp
+    npm init
+    ```
+    
+    This command will create a `package.json` file that stores metadata about your project and its dependencies.
+    
+2. Install packages: To install a package, you can use the `npm install` command followed by the package name. For example, let's install the `lodash` package, which provides utility functions for JavaScript:
+    
+    ```
+    npm install lodash
+    ```
+    
+    This command downloads the package and its dependencies into a folder named `node_modules` in your project directory.
+    
+3. Use packages in your code: After installing a package, you can import and use its functionality in your Node.js code. For example, if you want to use the `lodash` package, create a JavaScript file (e.g., `app.js`) and add the following code:
+    
+    ```javascript
+    const _ = require('lodash');
+    
+    const numbers = [1, 2, 3, 4, 5];
+    const doubledNumbers = _.map(numbers, n => n * 2);
+    
+    console.log(doubledNumbers);
+    ```
+    
+    In this example, we import the `lodash` package using the `require` function and use the `map` function from the package to double each number in the `numbers` array. Finally, we log the `doubledNumbers` array to the console.
+    
+4. Run your Node.js code: To execute your Node.js code, run the following command in your command line interface:
+    
+    ```
+    node app.js
+    ```
+    
+    This command runs the `app.js` file using the Node.js interpreter, and you should see the output in the console.
+    
+
+That's a basic overview of using npm in Node.js projects. npm offers many additional features like managing project dependencies, scripts, versioning, and publishing packages. You can explore the official npm documentation ([https://docs.npmjs.com/](https://docs.npmjs.com/)) to learn more about its capabilities and commands.
