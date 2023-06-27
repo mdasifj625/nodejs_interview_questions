@@ -92,3 +92,93 @@ server.on('close', () => {
 In this example, the `server` object emits the 'request' event whenever a new HTTP request is received, and the 'close' event when the server is being closed.
 
 Overall, Node.js's event-driven architecture allows you to write highly scalable and efficient applications by leveraging asynchronous programming and non-blocking I/O operations. It enables you to handle multiple events concurrently, making it particularly well-suited for building network applications or systems with high I/O demands.
+
+**3. How does Node.js handle asynchronous programming?**
+
+* * *
+
+Node.js is designed to handle asynchronous programming using an event-driven, non-blocking I/O model. It uses a single-threaded event loop that enables concurrent execution of multiple tasks without blocking the execution of the entire program. This allows Node.js to handle a large number of concurrent connections efficiently.
+
+In Node.js, asynchronous operations, such as file system operations or network requests, are executed using callbacks, promises, or async/await syntax.
+
+``Example using callbacks:``
+
+```javascript
+const fs = require('fs');
+
+// Asynchronous file read operation using callbacks
+fs.readFile('example.txt', 'utf8', function(err, data) {
+  if (err) {
+    console.error('Error:', err);
+    return;
+  }
+  
+  console.log('File contents:', data);
+});
+
+console.log('This will be executed first.');
+```
+
+In this example, we are using the `fs` module in Node.js to read the contents of a file named 'example.txt'. The `readFile` function takes three arguments: the file path, the encoding (optional), and a callback function that will be called when the operation completes.
+
+The callback function is defined as an anonymous function that takes two parameters: `err` and `data`. If an error occurs during the file read operation, the `err` parameter will contain the error information. If the operation is successful, the `data` parameter will contain the contents of the file.
+
+Notice that the `console.log('This will be executed first.');` statement is placed after the `readFile` function call. In Node.js, this statement will be executed immediately without waiting for the file read operation to complete. Once the file read operation finishes, the callback function will be invoked, and the file contents will be logged to the console.
+
+This non-blocking behavior allows Node.js to continue executing other tasks while waiting for the asynchronous operation to complete. It ensures that the program remains responsive and can handle multiple concurrent operations efficiently.
+
+``Example using promises and async/await:``
+
+```javascript
+const fs = require('fs');
+
+// Asynchronous file read operation using promises
+const readFilePromise = (filePath) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve(data);
+    });
+  });
+};
+
+// Using promises
+readFilePromise('example.txt')
+  .then((data) => {
+    console.log('File contents:', data);
+  })
+  .catch((err) => {
+    console.error('Error:', err);
+  });
+
+console.log('This will be executed first.');
+
+// Asynchronous file read operation using async/await
+const readFileAsync = async (filePath) => {
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    console.log('File contents:', data);
+  } catch (err) {
+    console.error('Error:', err);
+  }
+};
+
+// Using async/await
+readFileAsync('example.txt');
+
+console.log('This will be executed first.');
+```
+
+In the first part, we define a function `readFilePromise` that encapsulates the asynchronous file read operation using promises. It creates a new promise and performs the file read operation within the promise's executor function. If the operation is successful, the promise is resolved with the file contents. Otherwise, it is rejected with the error.
+
+We then use the `readFilePromise` function to read the contents of the 'example.txt' file. We attach `.then()` to handle the successful resolution of the promise and log the file contents. If an error occurs, we catch it using `.catch()` and log the error message.
+
+In the second part, we define an `async` function `readFileAsync` that performs the asynchronous file read operation using `fs.promises.readFile`. Inside the `try` block, we use `await` to pause the execution until the promise is resolved or rejected. If resolved, we log the file contents. If an error occurs, it is caught in the `catch` block and logged.
+
+We call the `readFileAsync` function to read the 'example.txt' file and handle the results accordingly.
+
+Both examples exhibit non-blocking behavior, allowing the program to execute other tasks while waiting for the file read operation to complete.
