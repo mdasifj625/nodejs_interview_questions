@@ -230,3 +230,24 @@ Here's how you can use npm in Node.js projects:
     
 
 That's a basic overview of using npm in Node.js projects. npm offers many additional features like managing project dependencies, scripts, versioning, and publishing packages. You can explore the official npm documentation ([https://docs.npmjs.com/](https://docs.npmjs.com/)) to learn more about its capabilities and commands.
+
+**5. What is the purpose of package.json in a Node.js project?**
+
+* * *
+
+The `package.json` file is a key component of a Node.js project. It serves as a manifest for the project and contains metadata about the project, its dependencies, and various configuration settings. The primary purpose of the `package.json` file is to manage the project's dependencies and provide information to the Node.js ecosystem.
+
+Here are some of the main purposes of the `package.json` file:
+
+1. Dependency Management: The `package.json` file lists all the external packages (dependencies) that your project relies on. It includes the package names, version ranges, and other necessary information. Node.js package managers like npm or Yarn use this file to install the required dependencies and their specific versions.
+    
+2. Scripting: The `package.json` file allows you to define custom scripts that can be executed using the package manager. You can specify scripts for common tasks like running tests, starting the development server, building the project, etc. These scripts can be executed via the command line using tools like npm or Yarn.
+    
+3. Metadata: The `package.json` file contains metadata about the project, such as the project name, version, description, author, license, repository URL, and more. This information helps other developers understand the project and its purpose.
+    
+4. Project Configuration: The `package.json` file can include various configuration options for the project. For example, you can specify the entry point of your application, define environment variables, set up build configurations, configure linters, preprocessors, test frameworks, and more. These configurations can be used by various tools and frameworks within the Node.js ecosystem.
+    
+5. Project Initialization: When starting a new Node.js project, the `package.json` file is often created as the first step. You can generate it manually or use tools like `npm init` or `yarn init`, which prompt you for project details and generate a basic `package.json` file with default values.
+    
+
+Overall, the `package.json` file acts as the central configuration and dependency management file for a Node.js project, providing a way to define project metadata, manage dependencies, run scripts, and configure various aspects of the project.
