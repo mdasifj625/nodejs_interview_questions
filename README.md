@@ -185,6 +185,8 @@ Both examples exhibit non-blocking behavior, allowing the program to execute oth
 
 **4. What is npm? How do you use it in Node.js projects?**
 
+***
+
 npm, which stands for Node Package Manager, is a package manager for Node.js and JavaScript. It is used to manage dependencies (third-party libraries and modules) and facilitate the installation, sharing, and updating of packages in Node.js projects.
 
 Here's how you can use npm in Node.js projects:
